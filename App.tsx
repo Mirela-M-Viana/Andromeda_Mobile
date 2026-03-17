@@ -1,45 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+//menu
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-export default function App() {
+//telas do sobre
+import Sobre from './telas/Sobre';
+
+//configuração do Menu
+const Tab = createBottomTabNavigator();
+
+//cria estrutura Menu
+function Menu() {
   return (
-    <View style={styles.container}>
-      {/* <Text style={styles.texto}>Hello World! no APP </Text> */}
-      <StatusBar style="light" />
-
-      <Image source={require('./assets/logo.png')} style={styles.logo}/>
-      <Text style={styles.apresentacao} >
-        Andrômeda é uma Joalheria para quem ama o céu, 
-        as estrelas e os misterios do universo!
-        {'\n'} Venha conhecer nossos produtos, e se apaixone pelos 
-        astros cada vez mais!
-      </Text>
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="Sobre" component={Sobre} />
+    </Tab.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor:  'rgb(71, 33, 114)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  texto:{
-    fontSize: 30,
-    fontFamily: 'cursive'
-  },
-
-  logo:{
-    width: 300,
-    height: 300,
-  },
-
-  apresentacao:{
-    fontSize: 15,
-    width: 300,
-    textAlign: 'center',
-    color: '#ffffff'
-
-  }
-});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Menu />
+    </NavigationContainer>
+  );
+}

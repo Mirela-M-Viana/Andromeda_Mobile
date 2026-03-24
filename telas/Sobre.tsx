@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
+import TextoPadrao from '../componentes/TextoPadrao';
 
 export default function Sobre() {
   const player = useVideoPlayer('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', player=>{player.loop= true; player.play();});
@@ -9,12 +10,12 @@ export default function Sobre() {
       <StatusBar style="light" />
 
       <Image source={require('../assets/logo.png')} style={styles.logo}/>
-      <Text style={styles.texto} >
+      <TextoPadrao estiloEspecifico={styles.texto} >
         Andrômeda é uma Joalheria para quem ama o céu, 
         as estrelas e os misterios do universo!
         {'\n'} Venha conhecer nossos produtos, e se apaixone pelos 
         astros cada vez mais!
-      </Text>
+      </TextoPadrao>
       
       <Image source={require('../assets/Loja.jpg')} style={styles.loja}/>
       <VideoView player={player} style={styles.video} allowsPictureInPicture/>
@@ -27,16 +28,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor:  'rgb(71, 33, 114)',
-    //alignItems: 'center',
-   // justifyContent: 'center',
+    paddingHorizontal: 16
   },
   texto:{
-    fontSize: 15,
-    width: 300,
-    textAlign: 'center',
     color: '#ffffff',
-    alignSelf: 'center',
-
   },
 
   logo:{

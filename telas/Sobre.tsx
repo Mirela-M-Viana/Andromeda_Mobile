@@ -4,7 +4,7 @@ import { useVideoPlayer, VideoView } from 'expo-video';
 import TextoPadrao from '../componentes/TextoPadrao';
 
 export default function Sobre() {
-  const player = useVideoPlayer('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', player=>{player.loop= true; player.play();});
+const player = useVideoPlayer(require('../video/video1.mp4'), (player) => {player.loop = true; player.play()});
   return (
     <ScrollView style={styles.container}>
       <StatusBar style="light" />
@@ -49,8 +49,9 @@ const styles = StyleSheet.create({
   }, 
 
   video:{
-    width: 350, 
-    height: 275,
+    marginTop:30,
+    width: 370, 
+    height: 290,
     alignSelf: 'center'
   }, 
 });

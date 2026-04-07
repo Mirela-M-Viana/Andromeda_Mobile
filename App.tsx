@@ -1,7 +1,12 @@
+import { View } from "react-native";
+
 //menu
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from '@expo/vector-icons/Ionicons';
+
+//fontes
+import {useFonts, Lora_400Regular, Lora_600SemiBold } from "@expo-google-fonts/lora"
 
 //telas do sobre
 import Sobre from './telas/Sobre';
@@ -47,6 +52,15 @@ function Menu() {
 }
 
 export default function App() {
+
+  //Carrega fonte
+  const [fonteCarregada] = useFonts({"lora":Lora_400Regular ,
+                                    "lora 2": Lora_600SemiBold});
+
+  //Verificação se a fonte esta carregada
+  if(!fonteCarregada){
+      return <View></View>
+  }
   return (
     <NavigationContainer>
       <Menu />

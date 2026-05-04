@@ -5,11 +5,20 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
+
 //fontes
 import {useFonts, Lora_400Regular, Lora_600SemiBold } from "@expo-google-fonts/lora"
 
 //telas do sobre
 import Sobre from './telas/Sobre';
+
+//Tela de Produtos (lista)
+import Produtos from './telas/produtos/Index';
+import ListaProdutos from './telas/mock/listaProdutos';
+
+function MenuProdutos(){
+  return <Produtos {...ListaProdutos} />
+}
 
 //configuração do Menu
 const Tab = createBottomTabNavigator();
@@ -45,7 +54,7 @@ function Menu() {
     })}>
       
       <Tab.Screen name="Sobre" component={Sobre} />
-      <Tab.Screen name="Produtos" component={Sobre} />
+      <Tab.Screen name="Produtos" component={MenuProdutos} />
       <Tab.Screen name="Perfil" component={Sobre} />
     </Tab.Navigator>
   );

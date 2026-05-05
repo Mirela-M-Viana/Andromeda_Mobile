@@ -1,11 +1,12 @@
 import { FlatList, View } from "react-native";
+import styles from "./estilosProdutos";
 
 import TextoPadrao from "../../componentes/TextoPadrao";
 import CadaProduto from "../produtos/Produto"
 
 export default function Index({itens}:any) {
-    return <View>
-            <TextoPadrao>{itens.titulo}</TextoPadrao>
+    return <View  style={styles.corFundo}>
+            <TextoPadrao style={styles.titulo}>{itens.titulo}</TextoPadrao>
         <FlatList
             data={itens.lista}
             renderItem={({item})=> <CadaProduto item={item} />}

@@ -3,9 +3,10 @@ import styles from "./estilosProdutos";
 
 import TextoPadrao from "../../componentes/TextoPadrao";
  
-export default function Produto({item:{id,nome,descricao,imagem}}:any) {
+export default function Produto({item:{id,titulo,nome,descricao,imagem}}:any) {
     return <Card mode="elevated" style={styles.card}>
                 <Card.Content>
+                    <TextoPadrao style={styles.titulo}>{titulo}</TextoPadrao>
                     <TextoPadrao style={styles.nomeProduto}>{nome}</TextoPadrao>
                     <TextoPadrao style={styles.descProduto}>{descricao}</TextoPadrao>
                 </Card.Content>

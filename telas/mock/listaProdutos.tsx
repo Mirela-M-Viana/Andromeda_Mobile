@@ -4,15 +4,15 @@ const lista_produtos = {
         lista: [
             {
                 id: 1,
-                nome: "Anel luna",
+                nome: "Brinco Lumina",
                 descricao: "4pcs. Temos outros modelos e cores.",
-                imagem: require('../../assets/Banner.jpg'),
+                imagem: require('../../assets/img/BrincoLumina.jpg'),
             },
             {
                 id: 2,
                 nome: "Brinco estrela",
                 descricao: "4pcs. Temos outros modelos e cores.",
-                imagem: require('../../assets/Banner.jpg'),
+                imagem: require('../../assets/img/BrincoEstrelaDourada.jpg'),
             },
         ]
     }

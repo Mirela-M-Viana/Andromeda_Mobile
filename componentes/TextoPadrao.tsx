@@ -1,3 +1,4 @@
+import React from "react";
 import {Text, StyleSheet} from "react-native";
 
 export default function TextoPadrao({children, estiloEspecifico}: any){

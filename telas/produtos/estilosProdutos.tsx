@@ -2,160 +2,143 @@ import React from "react";
 import { StyleSheet } from "react-native";
 
 const estilosProdutos = StyleSheet.create({
-    corFundo: {
+    container: {
         flex: 1,
-        backgroundColor: "#2A1245",
-        paddingTop: 40,
-        paddingBottom: 50,
+        backgroundColor: "rgb(71, 33, 114)",
+        paddingTop: 80,
     },
-
-    titulo: {
-        fontFamily: "Regular",
-        fontSize: 32,
+    tituloTela: {
+        fontSize: 20,
         color: "#FFFFFF",
         textAlign: "center",
         marginBottom: 20,
-        letterSpacing: 1,
+        fontFamily: "Regular",
+    },
+    searchContainer: {
+        width: "90%",
+        alignSelf: "center",
+        backgroundColor: "#FFF",
+        flexDirection: "row",
+        alignItems: "center",
+        borderRadius: 20,
+        paddingHorizontal: 15,
+        marginBottom: 20,
+        height: 55,
+    },
+
+    searchInput: {
+        flex: 1,
+        fontSize: 16,
+        marginLeft: 10,
+        color: "#333",
+    },
+
+    categorias: {
+        flexDirection: "row",
+        marginBottom: 20,
+        paddingHorizontal: 15,
+    },
+
+    categoriaBotao: {
+        backgroundColor: "#ffffff",
+        paddingHorizontal: 18,
+        paddingVertical: 10,
+        borderRadius: 20,
+        marginRight: 10,
+    },
+
+    categoriaTexto: {
+        color: "#FFF",
+        fontWeight: "bold",
     },
 
     card: {
         width: "90%",
         alignSelf: "center",
-        backgroundColor: "#F3EEFF",
+        backgroundColor: "#FFF",
         borderRadius: 25,
-        marginBottom: 30,
-        padding: 15,
-
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 6,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 8,
-
-        elevation: 10,
-    },
-
-    nomeProduto: {
-        fontFamily: "Regular",
-        color: "#5E17EB",
-        fontSize: 24,
-        marginTop: 12,
-        marginBottom: 6,
-        textAlign: "center",
-    },
-
-    descProduto: {
-        fontFamily: "Padrao",
-        color: "#5B4B73",
-        fontSize: 16,
-        lineHeight: 24,
-        textAlign: "center",
-        marginBottom: 15,
-    },
-
-    imagem: {
-        width: "100%",
-        height: 260,
-        borderRadius: 20,
-        alignSelf: "center",
-        resizeMode: "cover",
-    },
-
-    imagemModal: {
-        width: "75%",
-        height: "50%",
-        borderRadius: 25,
-        alignSelf: "center",
-        marginBottom: 20,
-    },
-
-    imagemSlider: {
-        width: "100%",
-        height: "100%",
-        borderRadius: 20,
-        resizeMode: "cover",
-    },
-
-    modal: {
-        backgroundColor: "#F3EEFF",
-        width: "85%",
-        height: "75%",
-        borderRadius: 30,
-        padding: 20,
-        borderWidth: 3,
-        borderColor: "#7B2FF7",
+        marginBottom: 25,
+        overflow: "hidden",
 
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 5,
         },
-        shadowOpacity: 0.3,
-        shadowRadius: 10,
+        shadowOpacity: 0.2,
+        shadowRadius: 8,
 
-        elevation: 12,
+        elevation: 10,
     },
 
-    modalContainer: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "rgba(0,0,0,0.5)",
+    imagem: {
+        width: "100%",
+        height: 240,
     },
 
-    botaoModal: {
-        alignSelf: "flex-end",
-        backgroundColor: "#7B2FF7",
-        width: 40,
-        height: 40,
-        borderRadius: 20,
-        justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 10,
+    infoContainer: {
+        padding: 15,
     },
 
-    botao: {
-        width: "45%",
-        backgroundColor: "#7B2FF7",
+    nomeProduto: {
+        fontSize: 24,
+        color: "#5E17EB",
+        marginBottom: 8,
+        fontFamily: "Regular",
+    },
+
+    descricao: {
+        fontSize: 15,
+        color: "#666",
+        lineHeight: 22,
+        marginBottom: 15,
+    },
+
+    preco: {
+        fontSize: 22,
+        color: "#7B2FF7",
+        fontWeight: "bold",
+        marginBottom: 15,
+    },
+
+    botoesContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+    },
+
+    botaoComprar: {
+        backgroundColor: "#a9a9a9",
+        width: "48%",
         paddingVertical: 12,
         borderRadius: 15,
-        alignSelf: "center",
-
-        shadowColor: "#7B2FF7",
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        shadowOpacity: 0.4,
-        shadowRadius: 6,
-
-        elevation: 6,
+        alignItems: "center",
+        borderColor: "#000000",
+        borderWidth: 1,
+        marginTop: 15,
     },
 
-    botaoFav: {
-        backgroundColor: "#E7DBFF",
-        borderWidth: 2,
-        borderColor: "#7B2FF7",
+    botaoFavorito: {
+        backgroundColor: "#ffffff",
+        width: "48%",
+        paddingVertical: 12,
+        borderRadius: 15,
+        alignItems: "center",
+        borderWidth: 1,
+        borderColor: "#000000",
+        marginTop: 15,
+
     },
 
     textoBotao: {
-        fontFamily: "Padrao",
-        width: "100%",
-        fontSize: 16,
-        color: "#FFFFFF",
-        textAlign: "center",
+        color: "#020202",
         fontWeight: "bold",
+        fontSize: 15,
     },
 
-    container: {
-        flex: 1,
-    },
-
-    page: {
-        justifyContent: "center",
-        alignItems: "center",
+    textoFav: {
+        color: "#000000",
+        fontWeight: "bold",
+        fontSize: 15,
     },
 });
 

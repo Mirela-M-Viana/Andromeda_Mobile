@@ -1,28 +1,5 @@
-// import React from "react";
-// import { View, FlatList } from "react-native";
-// import styles from "./estilosProdutos";
-
-// import TextoPadrao from "../../componentes/TextoPadrao";
-// import CadaProduto from "../produtos/Produto"
-
-// export default function Index({itens}:any) {
-//     return <View style={styles.container}>
-//             <TextoPadrao estiloEspecifico={styles.tituloTela}>{itens.titulo}</TextoPadrao>
-//             <FlatList
-//                 data={itens.lista}
-//                 renderItem={({item})=> <CadaProduto item={item} />}
-//                 keyExtractor={itens.lista.id} /*como se fosse um laço de repetição*/
-//             />
-//     </View>
-// }
-
 import React, { useState } from "react";
-import {
-  View,
-  FlatList,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { View, FlatList, TextInput, TouchableOpacity } from "react-native";
 
 import styles from "./estilosProdutos";
 
@@ -33,13 +10,23 @@ import Icon from "react-native-vector-icons/Feather";
 
 export default function Index({ itens }: any) {
   const [pesquisa, setPesquisa] = useState("");
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todos");
 
-  const produtosFiltrados = itens.lista.filter(
-    (produto: { nome: string }) =>
-      produto.nome
-        .toLowerCase()
-        .includes(pesquisa.toLowerCase())
-  );
+  // FILTRO
+  const produtosFiltrados = itens.lista.filter((produto: any) => {
+    // filtro pesquisa
+    const nomeCorresponde = produto.nome
+      .toLowerCase()
+      .includes(pesquisa.toLowerCase());
+
+    // filtro categoria
+    const categoriaCorresponde =
+      categoriaSelecionada === "Todos"
+        ? true
+        : produto.categoria === categoriaSelecionada;
+
+    return nomeCorresponde && categoriaCorresponde;
+  });
 
   return (
     <View style={styles.container}>
@@ -47,7 +34,7 @@ export default function Index({ itens }: any) {
         {itens.titulo}
       </TextoPadrao>
 
-      {/* Barra Pesquisa */}
+      {/* PESQUISA */}
       <View style={styles.searchContainer}>
         <Icon name="search" size={22} color="#999" />
 
@@ -59,33 +46,41 @@ export default function Index({ itens }: any) {
         />
       </View>
 
-      {/* Categorias */}
+      {/* CATEGORIAS */}
       <View style={styles.categorias}>
-        <TouchableOpacity style={styles.categoriaBotao}>
-          <TextoPadrao style={styles.categoriaTexto}>
-            Brincos
-          </TextoPadrao>
+        <TouchableOpacity
+          style={styles.categoriaBotao}
+          onPress={() => setCategoriaSelecionada("Todos")}
+        >
+          <TextoPadrao style={styles.categoriaTexto}>Todos</TextoPadrao>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.categoriaBotao}>
-          <TextoPadrao style={styles.categoriaTexto}>
-            Colares
-          </TextoPadrao>
+        <TouchableOpacity
+          style={styles.categoriaBotao}
+          onPress={() => setCategoriaSelecionada("Brincos")}
+        >
+          <TextoPadrao style={styles.categoriaTexto}>Brincos</TextoPadrao>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.categoriaBotao}>
-          <TextoPadrao style={styles.categoriaTexto}>
-            Anéis
-          </TextoPadrao>
+        <TouchableOpacity
+          style={styles.categoriaBotao}
+          onPress={() => setCategoriaSelecionada("Colares")}
+        >
+          <TextoPadrao style={styles.categoriaTexto}>Colares</TextoPadrao>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.categoriaBotao}
+          onPress={() => setCategoriaSelecionada("Anéis")}
+        >
+          <TextoPadrao style={styles.categoriaTexto}>Anéis</TextoPadrao>
         </TouchableOpacity>
       </View>
 
-      {/* Produtos */}
+      {/* LISTA */}
       <FlatList
         data={produtosFiltrados}
-        renderItem={({ item }) => (
-          <CadaProduto item={item} />
-        )}
+        renderItem={({ item }) => <CadaProduto item={item} />}
         keyExtractor={(item) => item.id.toString()}
       />
     </View>

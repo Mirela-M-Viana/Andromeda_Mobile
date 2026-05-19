@@ -140,6 +140,49 @@ const estilosProdutos = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 15,
     },
+
+// Modal
+
+    modalContainer: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+},
+
+modal: {
+    width: "90%",
+    backgroundColor: "#FFF",
+    borderRadius: 20,
+    padding: 20,
+    alignItems: "center",
+},
+
+ImageModal: {
+    width: 250,
+    height: 250,
+    marginVertical: 20,
+},
+
+botaoModal: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+},
+
+descProduto: {
+    fontSize: 16,
+    color: "#555",
+    textAlign: "center",
+    marginTop: 10,
+},
+
+precoProduto: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#7B2FF7",
+    marginTop: 15,
+},
 });
 
 export default estilosProdutos;

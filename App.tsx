@@ -17,6 +17,9 @@ import Sobre from './telas/Sobre';
 import Produtos from './telas/produtos/Index';
 import ListaProdutos from './telas/mock/listaProdutos';
 
+// Tela Perfil
+import Perfil from './telas/Perfil/Index';
+
 function MenuProdutos(){
   return <Produtos {...ListaProdutos} />
 }
@@ -56,7 +59,7 @@ function Menu() {
       
       <Tab.Screen name="Sobre" component={Sobre} />
       <Tab.Screen name="Produtos" component={MenuProdutos} />
-      <Tab.Screen name="Perfil" component={Sobre} />
+      <Tab.Screen name="Perfil" component={Perfil} />
     </Tab.Navigator>
   );
 }

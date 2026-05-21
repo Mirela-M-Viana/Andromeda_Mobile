@@ -1,85 +1,81 @@
 import React, { useState } from "react";
+import { View, Image, Modal, TouchableOpacity, ScrollView } from "react-native";
 import { Card } from "react-native-paper";
-import {
-  View,
-  TouchableOpacity,
-  Modal,
-  SafeAreaView,
-  Image,
-} from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
-
-import styles from "./estilosProdutos";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import TextoPadrao from "../../componentes/TextoPadrao";
-import CardActions from "react-native-paper/lib/typescript/components/Card/CardActions";
+import styles from "./estilosProdutos";
 
-export default function Produtos({
-  item: { nome, descricao, preco, imagem },
-}: any) {
+export default function Produto({ item: { id, nome, imagem, preco, descricao, detalhes } }: any) {
+
+  // Controla se o modal está aberto ou fechado
   const [statusModal, acaoAbreFecha] = useState(false);
 
   return (
-    <>
-      <Card style={styles.card}>
-        <Card.Cover source={imagem} style={styles.imagem} />
+    <View>
 
+      {/* ===== CARD DO PRODUTO ===== */}
+      <Card mode='elevated' style={styles.card}>
+        <Card.Content>
+          <TextoPadrao style={styles.nomeProduto}>{nome}</TextoPadrao>
+          <TextoPadrao style={styles.descricao}>{descricao}</TextoPadrao>
+          <TextoPadrao style={styles.preco}>R$ {preco}</TextoPadrao>
+        </Card.Content>
+        <Card.Cover source={imagem} style={styles.imagem} />
         <Card.Actions>
+          {/* botaoDetalhes → abre o modal. NÃO use botaoModal aqui */}
           <TouchableOpacity
-            style={styles.botaoModal}
-            onPress={() => acaoAbreFecha(true)}
-          >
+            style={styles.botaoDetalhes}
+            onPress={() => acaoAbreFecha(true)}>
             <TextoPadrao style={styles.textoBotao}>
-              <Ionicons name="eye" size={12} color="#000000" />
-              Ver detalhes
+              <Ionicons name="list" size={12} color="white" /> Detalhes
             </TextoPadrao>
           </TouchableOpacity>
         </Card.Actions>
-
-        <View style={styles.infoContainer}>
-          <TextoPadrao style={styles.nomeProduto}>{nome}</TextoPadrao>
-
-          <TextoPadrao style={styles.descricao}>{descricao}</TextoPadrao>
-
-          <TextoPadrao style={styles.preco}>R$ {preco}</TextoPadrao>
-
-          <View style={styles.botoesContainer}>
-            <TouchableOpacity style={styles.botaoComprar}>
-              <TextoPadrao style={styles.textoBotao}>Comprar</TextoPadrao>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.botaoFavorito}>
-              <TextoPadrao style={styles.textoFav}>Favoritar</TextoPadrao>
-            </TouchableOpacity>
-          </View>
-        </View>
       </Card>
 
-      {/* Modal Produtos */}
-      <Modal animationType="slide" transparent={true} visible={statusModal}>
+      {/* ===== MODAL COM DETALHES DO PRODUTO ===== */}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={statusModal}>
+
         <View style={styles.modalContainer}>
           <View style={styles.modal}>
-            <TextoPadrao style={styles.nomeProduto}>{nome}</TextoPadrao>
 
-            <TextoPadrao style={styles.descProduto}>{descricao}</TextoPadrao>
-
-            <TextoPadrao style={styles.precoProduto}>R$ {preco}</TextoPadrao>
-
-            <Image
-              source={imagem}
-              resizeMode="contain"
-              style={styles.ImageModal}
-            />
-
+            {/* Botão fechar (X) — posição absolute no canto superior direito */}
             <TouchableOpacity
               onPress={() => acaoAbreFecha(false)}
-              style={styles.botaoModal}
-            >
-              <Ionicons name="close" size={30} color="#000000" />
+              style={styles.botaoModal}>
+              <Ionicons name="close" size={30} color="purple" />
             </TouchableOpacity>
+
+            <ScrollView showsVerticalScrollIndicator={false}>
+
+              {/* Nome do produto no modal — usa modalNome, não nomeProduto */}
+              <TextoPadrao style={styles.modalNome}>{nome}</TextoPadrao>
+
+              {/* Imagem grande */}
+              <Image
+                source={imagem}
+                resizeMode="contain"
+                style={styles.ImagemModal}
+              />
+
+              {/* Descrição curta centralizada */}
+              <TextoPadrao style={styles.descProduto}>{descricao}</TextoPadrao>
+
+              {/* Detalhes completos — usa modalDetalhes */}
+              <TextoPadrao style={styles.modalDetalhes}>{detalhes}</TextoPadrao>
+
+              {/* Preço dentro do modal */}
+              <TextoPadrao style={styles.precoProduto}>R$ {preco}</TextoPadrao>
+
+            </ScrollView>
           </View>
         </View>
       </Modal>
-    </>
+
+    </View>
   );
 }

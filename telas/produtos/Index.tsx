@@ -4,7 +4,7 @@ import { View, FlatList, TextInput, TouchableOpacity } from "react-native";
 import styles from "./estilosProdutos";
 
 import TextoPadrao from "../../componentes/TextoPadrao";
-import CadaProduto from "../produtos/Produto";
+import CadaProduto from "./Produto";
 
 import Icon from "react-native-vector-icons/Feather";
 

@@ -49,7 +49,7 @@ function Menu() {
           : 'person-outline';
 
         }
-        return <Ionicons name ={iconName} size={22} color={color}/>
+        return <Ionicons name={iconName} size={22} color={color}/>
       },
 
       headerShown: false,

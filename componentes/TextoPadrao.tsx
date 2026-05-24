@@ -10,5 +10,22 @@ const estilos = StyleSheet.create({
         fontSize: 16,
         textAlign: 'center',
         lineHeight:20,
+        color: "#fff"
+
+
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+

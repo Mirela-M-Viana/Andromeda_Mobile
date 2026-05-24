@@ -3,18 +3,27 @@ const lista_produtos = {
   itens: {
     titulo: "Veja nossos produtos!",
     lista: [
-      {
+
+       {
         id: 1,
+        nome: "Andrômeda Solitaire",
+        descricao: "Modelo sofisticado com detalhes elegantes.",
+        preco: "80,90",
+        detalhes: "Anel solitário elegante em acabamento prateado polido, com design clássico e sofisticado. A peça possui aro fino e delicado, destacando uma pedra central redonda de brilho intenso, presa por seis garras que valorizam ainda mais sua luminosidade.",
+        categoria: "Anéis",
+        imagem: require("../../assets/img/AnelPrata01.jpg"),
+      },
+      {
+        id: 2,
         nome: "Brinco Lumina",
-        descricao: "4pcs. Temos outros modelos e cores.",
+        descricao: "Temos outros modelos e cores.",
         preco: "49,90",
         detalhes: "Delicado e sofisticado, o Brinco Lumina traduz elegância em cada detalhe. Seu design minimalista em formato de meia-lua envolve uma pedra brilhante que reflete a luz com suavidade e encanto, criando um visual moderno e atemporal.",
         categoria: "Brincos",
         imagem: require("../../assets/img/BrincoLumina.jpg"),
       },
-
-      {
-        id: 2,
+       {
+        id: 3,
         nome: "Brinco Stella",
         descricao: "Modelo dourado premium.",
         preco: "59,90",
@@ -23,7 +32,7 @@ const lista_produtos = {
         imagem: require("../../assets/img/brincoEstrelaDourada.jpg"),
       },
       {
-        id: 3,
+        id: 4,
         nome: "Colar Stella",
         descricao: "Modelo dourado premium com um lindo diamante!.",
         preco: "69,90",
@@ -31,15 +40,8 @@ const lista_produtos = {
         categoria: "Colares",
         imagem: require("../../assets/img/colarEstrelaDourada.jpg"),
       },
-      {
-        id: 4,
-        nome: "Andrômeda Solitaire",
-        descricao: "Modelo sofisticado com detalhes elegantes.",
-        preco: "80,90",
-        detalhes: "Anel solitário elegante em acabamento prateado polido, com design clássico e sofisticado. A peça possui aro fino e delicado, destacando uma pedra central redonda de brilho intenso, presa por seis garras que valorizam ainda mais sua luminosidade.",
-        categoria: "Anéis",
-        imagem: require("../../assets/img/AnelPrata01.jpg"),
-      },
+
+     
     ],
   },
 };

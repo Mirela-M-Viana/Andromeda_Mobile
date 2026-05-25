@@ -19,7 +19,7 @@ export default function Sobre() {
 
       <TextoPadrao estiloEspecifico={styles.texto}>
         <Text style={styles.destaque}>Andrômeda</Text> 
-        é uma Joalheria para quem ama o céu,
+        {' '}é uma Joalheria para quem ama o céu,
         as estrelas e os mistérios do universo!{'\n'}
         Venha conhecer nossos produtos, e se apaixone pelos astros cada vez mais!
       </TextoPadrao>
